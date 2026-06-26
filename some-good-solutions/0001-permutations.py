@@ -1,3 +1,5 @@
+# The problem is to print a permutation of n such that
+# the difference between the adjacent elemets is not equal to 1
 n = int(input())
 if n == 1:
     print(1)
