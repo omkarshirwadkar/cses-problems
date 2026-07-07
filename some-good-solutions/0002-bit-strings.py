@@ -10,6 +10,7 @@ def binaryExponent(base, expo):
         if expo & 1:
             ans = (ans * base) % MODULO
         base = (base * base) % MODULO
+        # This operation is just dividing by 2 when expo is even
         expo >>= 1
     return ans
 print(binaryExponent(2, n))
