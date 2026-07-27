@@ -33,10 +33,8 @@ dp = [0] * (x + 1)
 dp[0] = 1
 MOD = 1000000007
 
-# OPTIMIZATION: Loop through coins FIRST (Outer Loop)
-# This prevents checking unavailable coins repeatedly
-
-for coin in c:
-    for i in range(coin, x + 1):
+for i in range(1, x + 1):
+    for coin in c:
+        if i >= coin:
             dp[i] = (dp[i - coin] + dp[i]) % MOD 
 print(dp[x])

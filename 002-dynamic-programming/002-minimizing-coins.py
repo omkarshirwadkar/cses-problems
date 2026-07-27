@@ -26,29 +26,15 @@ dp[x] = minimum number of coins required to construct a sum of x
 #####################################################################################
 
 '''
-import sys
-def main():
-    input = sys.stdin.read
-    data = input().split()
-    if not data:
-        return
-    n = int(data[0])
-    x = int(data[1])
-    c = [int(v) for v in data[2:2+n]]
-    
-    INF = 10**9
-    dp = [INF] * (x + 1)
-    dp[0] = 0
-    
-    # OPTIMIZATION: Loop through coins FIRST (Outer Loop)
-    # This prevents checking unavailable coins repeatedly
-    for coin in c:
-        for i in range(coin, x + 1):
-            new_val = dp[i - coin] + 1
-            if new_val < dp[i]:
-                dp[i] = new_val
-                
-    print(dp[x] if dp[x] < INF else -1)
+n, x = [int(s) for s in input().split()]
+c = [int(s) for s in input().split()]
+INF = 10**9
+dp = [INF] * (x + 1)
+dp[0] = 0
 
-if __name__ == '__main__':
-    main()
+for i in range(1, x + 1):
+    for coin in c:
+        if i >= coin:
+            dp[i] = min(dp[i], dp[i - coin] + 1)
+
+print(dp[x] if dp[x] < INF else -1)
