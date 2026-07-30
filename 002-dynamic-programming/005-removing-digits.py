@@ -28,14 +28,14 @@ dp[n] = minimum number of steps required to convert n to 0
 
 '''
 # Greedy Solution: Always take the maximum value and subtract
-# n = int(input())
-# ans = 0
-# m = n
-# while m != 0:
-#     max_num = int(max(list(str(m))))
-#     m -= max_num
-#     ans += 1
-# print(ans)
+n = int(input())
+ans = 0
+m = n
+while m != 0:
+    max_num = int(max(list(str(m))))
+    m -= max_num
+    ans += 1
+print(ans)
 
 
 n = int(input())
