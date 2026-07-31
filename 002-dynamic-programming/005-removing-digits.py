@@ -38,9 +38,6 @@ dp[n] = minimum number of steps required to convert n to 0
 # print(ans)
 
 
-
-
-
 n = int(input())
 dp = [1000000000] * (n + 1)
 
